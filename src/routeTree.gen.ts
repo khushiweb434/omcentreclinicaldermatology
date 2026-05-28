@@ -10,10 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TreatmentsRouteImport } from './routes/treatments'
+import { Route as SkinAllergyTreatmentAhmedabadRouteImport } from './routes/skin-allergy-treatment-ahmedabad'
 import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as PigmentationTreatmentAhmedabadRouteImport } from './routes/pigmentation-treatment-ahmedabad'
+import { Route as LaserTreatmentAhmedabadRouteImport } from './routes/laser-treatment-ahmedabad'
+import { Route as HairFallTreatmentAhmedabadRouteImport } from './routes/hair-fall-treatment-ahmedabad'
+import { Route as EczemaPsoriasisTreatmentAhmedabadRouteImport } from './routes/eczema-psoriasis-treatment-ahmedabad'
+import { Route as DermatologistShahibaugRouteImport } from './routes/dermatologist-shahibaug'
+import { Route as DermatologistSabarmatiRouteImport } from './routes/dermatologist-sabarmati'
+import { Route as DermatologistChandkhedaRouteImport } from './routes/dermatologist-chandkheda'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookAppointmentRouteImport } from './routes/book-appointment'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AcneTreatmentAhmedabadRouteImport } from './routes/acne-treatment-ahmedabad'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,9 +31,53 @@ const TreatmentsRoute = TreatmentsRouteImport.update({
   path: '/treatments',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SkinAllergyTreatmentAhmedabadRoute =
+  SkinAllergyTreatmentAhmedabadRouteImport.update({
+    id: '/skin-allergy-treatment-ahmedabad',
+    path: '/skin-allergy-treatment-ahmedabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ReviewsRoute = ReviewsRouteImport.update({
   id: '/reviews',
   path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PigmentationTreatmentAhmedabadRoute =
+  PigmentationTreatmentAhmedabadRouteImport.update({
+    id: '/pigmentation-treatment-ahmedabad',
+    path: '/pigmentation-treatment-ahmedabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LaserTreatmentAhmedabadRoute = LaserTreatmentAhmedabadRouteImport.update({
+  id: '/laser-treatment-ahmedabad',
+  path: '/laser-treatment-ahmedabad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HairFallTreatmentAhmedabadRoute =
+  HairFallTreatmentAhmedabadRouteImport.update({
+    id: '/hair-fall-treatment-ahmedabad',
+    path: '/hair-fall-treatment-ahmedabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EczemaPsoriasisTreatmentAhmedabadRoute =
+  EczemaPsoriasisTreatmentAhmedabadRouteImport.update({
+    id: '/eczema-psoriasis-treatment-ahmedabad',
+    path: '/eczema-psoriasis-treatment-ahmedabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DermatologistShahibaugRoute = DermatologistShahibaugRouteImport.update({
+  id: '/dermatologist-shahibaug',
+  path: '/dermatologist-shahibaug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DermatologistSabarmatiRoute = DermatologistSabarmatiRouteImport.update({
+  id: '/dermatologist-sabarmati',
+  path: '/dermatologist-sabarmati',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DermatologistChandkhedaRoute = DermatologistChandkhedaRouteImport.update({
+  id: '/dermatologist-chandkheda',
+  path: '/dermatologist-chandkheda',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -42,6 +95,11 @@ const BlogRoute = BlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AcneTreatmentAhmedabadRoute = AcneTreatmentAhmedabadRouteImport.update({
+  id: '/acne-treatment-ahmedabad',
+  path: '/acne-treatment-ahmedabad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -56,29 +114,56 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/acne-treatment-ahmedabad': typeof AcneTreatmentAhmedabadRoute
   '/blog': typeof BlogRoute
   '/book-appointment': typeof BookAppointmentRoute
   '/contact': typeof ContactRoute
+  '/dermatologist-chandkheda': typeof DermatologistChandkhedaRoute
+  '/dermatologist-sabarmati': typeof DermatologistSabarmatiRoute
+  '/dermatologist-shahibaug': typeof DermatologistShahibaugRoute
+  '/eczema-psoriasis-treatment-ahmedabad': typeof EczemaPsoriasisTreatmentAhmedabadRoute
+  '/hair-fall-treatment-ahmedabad': typeof HairFallTreatmentAhmedabadRoute
+  '/laser-treatment-ahmedabad': typeof LaserTreatmentAhmedabadRoute
+  '/pigmentation-treatment-ahmedabad': typeof PigmentationTreatmentAhmedabadRoute
   '/reviews': typeof ReviewsRoute
+  '/skin-allergy-treatment-ahmedabad': typeof SkinAllergyTreatmentAhmedabadRoute
   '/treatments': typeof TreatmentsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/acne-treatment-ahmedabad': typeof AcneTreatmentAhmedabadRoute
   '/blog': typeof BlogRoute
   '/book-appointment': typeof BookAppointmentRoute
   '/contact': typeof ContactRoute
+  '/dermatologist-chandkheda': typeof DermatologistChandkhedaRoute
+  '/dermatologist-sabarmati': typeof DermatologistSabarmatiRoute
+  '/dermatologist-shahibaug': typeof DermatologistShahibaugRoute
+  '/eczema-psoriasis-treatment-ahmedabad': typeof EczemaPsoriasisTreatmentAhmedabadRoute
+  '/hair-fall-treatment-ahmedabad': typeof HairFallTreatmentAhmedabadRoute
+  '/laser-treatment-ahmedabad': typeof LaserTreatmentAhmedabadRoute
+  '/pigmentation-treatment-ahmedabad': typeof PigmentationTreatmentAhmedabadRoute
   '/reviews': typeof ReviewsRoute
+  '/skin-allergy-treatment-ahmedabad': typeof SkinAllergyTreatmentAhmedabadRoute
   '/treatments': typeof TreatmentsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/acne-treatment-ahmedabad': typeof AcneTreatmentAhmedabadRoute
   '/blog': typeof BlogRoute
   '/book-appointment': typeof BookAppointmentRoute
   '/contact': typeof ContactRoute
+  '/dermatologist-chandkheda': typeof DermatologistChandkhedaRoute
+  '/dermatologist-sabarmati': typeof DermatologistSabarmatiRoute
+  '/dermatologist-shahibaug': typeof DermatologistShahibaugRoute
+  '/eczema-psoriasis-treatment-ahmedabad': typeof EczemaPsoriasisTreatmentAhmedabadRoute
+  '/hair-fall-treatment-ahmedabad': typeof HairFallTreatmentAhmedabadRoute
+  '/laser-treatment-ahmedabad': typeof LaserTreatmentAhmedabadRoute
+  '/pigmentation-treatment-ahmedabad': typeof PigmentationTreatmentAhmedabadRoute
   '/reviews': typeof ReviewsRoute
+  '/skin-allergy-treatment-ahmedabad': typeof SkinAllergyTreatmentAhmedabadRoute
   '/treatments': typeof TreatmentsRoute
 }
 export interface FileRouteTypes {
@@ -86,38 +171,74 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/acne-treatment-ahmedabad'
     | '/blog'
     | '/book-appointment'
     | '/contact'
+    | '/dermatologist-chandkheda'
+    | '/dermatologist-sabarmati'
+    | '/dermatologist-shahibaug'
+    | '/eczema-psoriasis-treatment-ahmedabad'
+    | '/hair-fall-treatment-ahmedabad'
+    | '/laser-treatment-ahmedabad'
+    | '/pigmentation-treatment-ahmedabad'
     | '/reviews'
+    | '/skin-allergy-treatment-ahmedabad'
     | '/treatments'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/acne-treatment-ahmedabad'
     | '/blog'
     | '/book-appointment'
     | '/contact'
+    | '/dermatologist-chandkheda'
+    | '/dermatologist-sabarmati'
+    | '/dermatologist-shahibaug'
+    | '/eczema-psoriasis-treatment-ahmedabad'
+    | '/hair-fall-treatment-ahmedabad'
+    | '/laser-treatment-ahmedabad'
+    | '/pigmentation-treatment-ahmedabad'
     | '/reviews'
+    | '/skin-allergy-treatment-ahmedabad'
     | '/treatments'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/acne-treatment-ahmedabad'
     | '/blog'
     | '/book-appointment'
     | '/contact'
+    | '/dermatologist-chandkheda'
+    | '/dermatologist-sabarmati'
+    | '/dermatologist-shahibaug'
+    | '/eczema-psoriasis-treatment-ahmedabad'
+    | '/hair-fall-treatment-ahmedabad'
+    | '/laser-treatment-ahmedabad'
+    | '/pigmentation-treatment-ahmedabad'
     | '/reviews'
+    | '/skin-allergy-treatment-ahmedabad'
     | '/treatments'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AcneTreatmentAhmedabadRoute: typeof AcneTreatmentAhmedabadRoute
   BlogRoute: typeof BlogRoute
   BookAppointmentRoute: typeof BookAppointmentRoute
   ContactRoute: typeof ContactRoute
+  DermatologistChandkhedaRoute: typeof DermatologistChandkhedaRoute
+  DermatologistSabarmatiRoute: typeof DermatologistSabarmatiRoute
+  DermatologistShahibaugRoute: typeof DermatologistShahibaugRoute
+  EczemaPsoriasisTreatmentAhmedabadRoute: typeof EczemaPsoriasisTreatmentAhmedabadRoute
+  HairFallTreatmentAhmedabadRoute: typeof HairFallTreatmentAhmedabadRoute
+  LaserTreatmentAhmedabadRoute: typeof LaserTreatmentAhmedabadRoute
+  PigmentationTreatmentAhmedabadRoute: typeof PigmentationTreatmentAhmedabadRoute
   ReviewsRoute: typeof ReviewsRoute
+  SkinAllergyTreatmentAhmedabadRoute: typeof SkinAllergyTreatmentAhmedabadRoute
   TreatmentsRoute: typeof TreatmentsRoute
 }
 
@@ -130,11 +251,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TreatmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/skin-allergy-treatment-ahmedabad': {
+      id: '/skin-allergy-treatment-ahmedabad'
+      path: '/skin-allergy-treatment-ahmedabad'
+      fullPath: '/skin-allergy-treatment-ahmedabad'
+      preLoaderRoute: typeof SkinAllergyTreatmentAhmedabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reviews': {
       id: '/reviews'
       path: '/reviews'
       fullPath: '/reviews'
       preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pigmentation-treatment-ahmedabad': {
+      id: '/pigmentation-treatment-ahmedabad'
+      path: '/pigmentation-treatment-ahmedabad'
+      fullPath: '/pigmentation-treatment-ahmedabad'
+      preLoaderRoute: typeof PigmentationTreatmentAhmedabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/laser-treatment-ahmedabad': {
+      id: '/laser-treatment-ahmedabad'
+      path: '/laser-treatment-ahmedabad'
+      fullPath: '/laser-treatment-ahmedabad'
+      preLoaderRoute: typeof LaserTreatmentAhmedabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hair-fall-treatment-ahmedabad': {
+      id: '/hair-fall-treatment-ahmedabad'
+      path: '/hair-fall-treatment-ahmedabad'
+      fullPath: '/hair-fall-treatment-ahmedabad'
+      preLoaderRoute: typeof HairFallTreatmentAhmedabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eczema-psoriasis-treatment-ahmedabad': {
+      id: '/eczema-psoriasis-treatment-ahmedabad'
+      path: '/eczema-psoriasis-treatment-ahmedabad'
+      fullPath: '/eczema-psoriasis-treatment-ahmedabad'
+      preLoaderRoute: typeof EczemaPsoriasisTreatmentAhmedabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dermatologist-shahibaug': {
+      id: '/dermatologist-shahibaug'
+      path: '/dermatologist-shahibaug'
+      fullPath: '/dermatologist-shahibaug'
+      preLoaderRoute: typeof DermatologistShahibaugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dermatologist-sabarmati': {
+      id: '/dermatologist-sabarmati'
+      path: '/dermatologist-sabarmati'
+      fullPath: '/dermatologist-sabarmati'
+      preLoaderRoute: typeof DermatologistSabarmatiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dermatologist-chandkheda': {
+      id: '/dermatologist-chandkheda'
+      path: '/dermatologist-chandkheda'
+      fullPath: '/dermatologist-chandkheda'
+      preLoaderRoute: typeof DermatologistChandkhedaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -158,6 +335,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/acne-treatment-ahmedabad': {
+      id: '/acne-treatment-ahmedabad'
+      path: '/acne-treatment-ahmedabad'
+      fullPath: '/acne-treatment-ahmedabad'
+      preLoaderRoute: typeof AcneTreatmentAhmedabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -178,12 +362,32 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AcneTreatmentAhmedabadRoute: AcneTreatmentAhmedabadRoute,
   BlogRoute: BlogRoute,
   BookAppointmentRoute: BookAppointmentRoute,
   ContactRoute: ContactRoute,
+  DermatologistChandkhedaRoute: DermatologistChandkhedaRoute,
+  DermatologistSabarmatiRoute: DermatologistSabarmatiRoute,
+  DermatologistShahibaugRoute: DermatologistShahibaugRoute,
+  EczemaPsoriasisTreatmentAhmedabadRoute:
+    EczemaPsoriasisTreatmentAhmedabadRoute,
+  HairFallTreatmentAhmedabadRoute: HairFallTreatmentAhmedabadRoute,
+  LaserTreatmentAhmedabadRoute: LaserTreatmentAhmedabadRoute,
+  PigmentationTreatmentAhmedabadRoute: PigmentationTreatmentAhmedabadRoute,
   ReviewsRoute: ReviewsRoute,
+  SkinAllergyTreatmentAhmedabadRoute: SkinAllergyTreatmentAhmedabadRoute,
   TreatmentsRoute: TreatmentsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
