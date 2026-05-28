@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Om Centre Clinical Dermatology" },
+      { name: "description", content: "Dr. Nayankumar Harshadkumar Patel offers expert dermatology care in Ahmedabad, India." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Om Centre Clinical Dermatology" },
+      { property: "og:description", content: "Dr. Nayankumar Harshadkumar Patel offers expert dermatology care in Ahmedabad, India." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Om Centre Clinical Dermatology" },
+      { name: "twitter:description", content: "Dr. Nayankumar Harshadkumar Patel offers expert dermatology care in Ahmedabad, India." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/574c894f-2e6d-471f-901d-b12515dbbeda/id-preview-c3c111c6--2f1b05c5-14e1-492c-99ab-d87dc99ea52e.lovable.app-1779941124283.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/574c894f-2e6d-471f-901d-b12515dbbeda/id-preview-c3c111c6--2f1b05c5-14e1-492c-99ab-d87dc99ea52e.lovable.app-1779941124283.png" },
     ],
     links: [
       {
