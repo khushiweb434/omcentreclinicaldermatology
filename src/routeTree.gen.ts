@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TreatmentsRouteImport } from './routes/treatments'
 import { Route as SkinAllergyTreatmentAhmedabadRouteImport } from './routes/skin-allergy-treatment-ahmedabad'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as PigmentationTreatmentAhmedabadRouteImport } from './routes/pigmentation-treatment-ahmedabad'
 import { Route as LaserTreatmentAhmedabadRouteImport } from './routes/laser-treatment-ahmedabad'
@@ -37,6 +38,11 @@ const SkinAllergyTreatmentAhmedabadRoute =
     path: '/skin-allergy-treatment-ahmedabad',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReviewsRoute = ReviewsRouteImport.update({
   id: '/reviews',
   path: '/reviews',
@@ -126,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/laser-treatment-ahmedabad': typeof LaserTreatmentAhmedabadRoute
   '/pigmentation-treatment-ahmedabad': typeof PigmentationTreatmentAhmedabadRoute
   '/reviews': typeof ReviewsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/skin-allergy-treatment-ahmedabad': typeof SkinAllergyTreatmentAhmedabadRoute
   '/treatments': typeof TreatmentsRoute
 }
@@ -144,6 +151,7 @@ export interface FileRoutesByTo {
   '/laser-treatment-ahmedabad': typeof LaserTreatmentAhmedabadRoute
   '/pigmentation-treatment-ahmedabad': typeof PigmentationTreatmentAhmedabadRoute
   '/reviews': typeof ReviewsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/skin-allergy-treatment-ahmedabad': typeof SkinAllergyTreatmentAhmedabadRoute
   '/treatments': typeof TreatmentsRoute
 }
@@ -163,6 +171,7 @@ export interface FileRoutesById {
   '/laser-treatment-ahmedabad': typeof LaserTreatmentAhmedabadRoute
   '/pigmentation-treatment-ahmedabad': typeof PigmentationTreatmentAhmedabadRoute
   '/reviews': typeof ReviewsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/skin-allergy-treatment-ahmedabad': typeof SkinAllergyTreatmentAhmedabadRoute
   '/treatments': typeof TreatmentsRoute
 }
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/laser-treatment-ahmedabad'
     | '/pigmentation-treatment-ahmedabad'
     | '/reviews'
+    | '/sitemap.xml'
     | '/skin-allergy-treatment-ahmedabad'
     | '/treatments'
   fileRoutesByTo: FileRoutesByTo
@@ -201,6 +211,7 @@ export interface FileRouteTypes {
     | '/laser-treatment-ahmedabad'
     | '/pigmentation-treatment-ahmedabad'
     | '/reviews'
+    | '/sitemap.xml'
     | '/skin-allergy-treatment-ahmedabad'
     | '/treatments'
   id:
@@ -219,6 +230,7 @@ export interface FileRouteTypes {
     | '/laser-treatment-ahmedabad'
     | '/pigmentation-treatment-ahmedabad'
     | '/reviews'
+    | '/sitemap.xml'
     | '/skin-allergy-treatment-ahmedabad'
     | '/treatments'
   fileRoutesById: FileRoutesById
@@ -238,6 +250,7 @@ export interface RootRouteChildren {
   LaserTreatmentAhmedabadRoute: typeof LaserTreatmentAhmedabadRoute
   PigmentationTreatmentAhmedabadRoute: typeof PigmentationTreatmentAhmedabadRoute
   ReviewsRoute: typeof ReviewsRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SkinAllergyTreatmentAhmedabadRoute: typeof SkinAllergyTreatmentAhmedabadRoute
   TreatmentsRoute: typeof TreatmentsRoute
 }
@@ -256,6 +269,13 @@ declare module '@tanstack/react-router' {
       path: '/skin-allergy-treatment-ahmedabad'
       fullPath: '/skin-allergy-treatment-ahmedabad'
       preLoaderRoute: typeof SkinAllergyTreatmentAhmedabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reviews': {
@@ -375,6 +395,7 @@ const rootRouteChildren: RootRouteChildren = {
   LaserTreatmentAhmedabadRoute: LaserTreatmentAhmedabadRoute,
   PigmentationTreatmentAhmedabadRoute: PigmentationTreatmentAhmedabadRoute,
   ReviewsRoute: ReviewsRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SkinAllergyTreatmentAhmedabadRoute: SkinAllergyTreatmentAhmedabadRoute,
   TreatmentsRoute: TreatmentsRoute,
 }
