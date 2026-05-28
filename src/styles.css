@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap");
+
 /*
  * Design system definition.
  *
@@ -59,42 +61,53 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --radius: 0.5rem;
+  /* Luxury dark medical palette */
+  --background: oklch(0.18 0.005 270);          /* #111318 */
+  --foreground: oklch(0.96 0.01 90);
+  --surface: oklch(0.215 0.006 270);
+  --surface-elevated: oklch(0.255 0.008 270);
+  --card: oklch(0.215 0.006 270);
+  --card-foreground: oklch(0.96 0.01 90);
+  --popover: oklch(0.215 0.006 270);
+  --popover-foreground: oklch(0.96 0.01 90);
+  --primary: oklch(0.78 0.09 80);               /* gold #C9A96E */
+  --primary-foreground: oklch(0.18 0.005 270);
+  --gold: oklch(0.78 0.09 80);
+  --gold-soft: oklch(0.86 0.07 85);
+  --secondary: oklch(0.28 0.008 270);
+  --secondary-foreground: oklch(0.96 0.01 90);
+  --muted: oklch(0.26 0.006 270);
+  --muted-foreground: oklch(0.72 0.015 90);
+  --accent: oklch(0.78 0.09 80);
+  --accent-foreground: oklch(0.18 0.005 270);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.32 0.008 270);
+  --input: oklch(0.28 0.008 270);
+  --ring: oklch(0.78 0.09 80);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar: oklch(0.215 0.006 270);
+  --sidebar-foreground: oklch(0.96 0.01 90);
+  --sidebar-primary: oklch(0.78 0.09 80);
+  --sidebar-primary-foreground: oklch(0.18 0.005 270);
+  --sidebar-accent: oklch(0.28 0.008 270);
+  --sidebar-accent-foreground: oklch(0.96 0.01 90);
+  --sidebar-border: oklch(0.32 0.008 270);
+  --sidebar-ring: oklch(0.78 0.09 80);
 }
 
 .dark {
@@ -140,5 +153,34 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
   }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-background);
+  }
+}
+
+@utility container-luxe {
+  @apply mx-auto w-full max-w-7xl px-6 md:px-10;
+}
+
+@utility text-gold {
+  color: var(--color-gold);
+}
+
+@utility bg-gold {
+  background-color: var(--color-gold);
+}
+
+@utility hairline {
+  @apply inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-gold;
 }
