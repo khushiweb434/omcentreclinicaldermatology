@@ -54,7 +54,7 @@ function AreaPage() {
             <div className="hairline">Visit the clinic</div>
             <div className="mt-4 space-y-3 text-sm">
               <div className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 text-gold" /> 604, A Park Business Hub, near Panchal Hall, Shahibaug, Ahmedabad 380004</div>
-              <div className="flex items-center gap-3"><Phone className="h-5 w-5 text-gold" /> <a href="tel:+919999999999" className="hover:text-gold">+91 99999 99999</a></div>
+              <div className="flex items-center gap-3"><Phone className="h-5 w-5 text-gold" /> <a href="tel:+919925011309" className="hover:text-gold">+91 99250 11309</a></div>
             </div>
             <div className="mt-6 aspect-[4/3] overflow-hidden rounded-2xl border border-border">
               <iframe title="Om Centre map" src="https://www.google.com/maps?q=Park+Business+Hub+Shahibaug+Ahmedabad&output=embed" loading="lazy" className="h-full w-full grayscale" />

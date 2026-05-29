@@ -418,7 +418,7 @@ function LocationAreas() {
           <h2 className="mt-4 text-4xl md:text-5xl">Om Centre, Shahibaug.</h2>
           <div className="mt-8 space-y-4 text-sm">
             <div className="flex items-start gap-3"><MapPin className="mt-0.5 h-5 w-5 text-gold" /> <span>604, A Park Business Hub, near Panchal Hall,<br />Shahibaug, Ahmedabad 380004</span></div>
-            <div className="flex items-center gap-3"><Phone className="h-5 w-5 text-gold" /> <a href="tel:+919999999999" className="hover:text-gold">+91 99999 99999</a></div>
+            <div className="flex items-center gap-3"><Phone className="h-5 w-5 text-gold" /> <a href="tel:+919925011309" className="hover:text-gold">+91 99250 11309</a></div>
           </div>
           <div className="mt-8">
             <div className="hairline">Areas served</div>

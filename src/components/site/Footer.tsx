@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import { PHONE, PHONE_DISPLAY } from "@/lib/constants";
 
 const treatments = [
   { to: "/acne-treatment-ahmedabad", label: "Acne Treatment Ahmedabad" },
@@ -34,7 +35,7 @@ export function Footer() {
             </p>
             <div className="mt-6 space-y-3 text-sm text-foreground/80">
               <div className="flex items-start gap-3"><MapPin className="mt-0.5 h-4 w-4 text-gold" /> 604, A Park Business Hub, near Panchal Hall, Shahibaug, Ahmedabad 380004</div>
-              <div className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold" /> <a href="tel:+919999999999" className="hover:text-gold">+91 99999 99999</a></div>
+              <div className="flex items-center gap-3"><Phone className="h-4 w-4 text-gold" /> <a href={`tel:${PHONE}`} className="hover:text-gold">{PHONE_DISPLAY}</a></div>
               <div className="flex items-center gap-3"><Mail className="h-4 w-4 text-gold" /> <a href="mailto:appointments@omdermatology.in" className="hover:text-gold">appointments@omdermatology.in</a></div>
               <div className="flex items-start gap-3"><Clock className="mt-0.5 h-4 w-4 text-gold" /> Mon – Sat · 11:00 AM – 1:00 PM · 5:00 PM – 8:00 PM</div>
             </div>

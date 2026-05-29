@@ -28,7 +28,7 @@ function Contact() {
       <section className="container-luxe grid gap-12 py-16 lg:grid-cols-12">
         <div className="space-y-5 lg:col-span-5">
           <Info icon={MapPin} t="Address" s="604, A Park Business Hub, near Panchal Hall, Shahibaug, Ahmedabad 380004, Gujarat" />
-          <Info icon={Phone} t="Phone" s="+91 99999 99999" href="tel:+919999999999" />
+          <Info icon={Phone} t="Phone" s="+91 99250 11309" href="tel:+919925011309" />
           <Info icon={MessageCircle} t="WhatsApp" s="Chat with the clinic" href={WHATSAPP} />
           <Info icon={Mail} t="Email" s="appointments@omdermatology.in" href="mailto:appointments@omdermatology.in" />
           <Info icon={Clock} t="Hours" s="Mon – Sat · 11:00 AM – 1:00 PM · 5:00 PM – 8:00 PM · Sunday closed" />

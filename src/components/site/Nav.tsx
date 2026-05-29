@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import { PHONE } from "@/lib/constants";
+import { track } from "@/lib/tracking";
 
 const links = [
   { to: "/", label: "Home" },
@@ -37,13 +39,15 @@ export function Nav() {
         </nav>
         <div className="flex items-center gap-3">
           <a
-            href="tel:+919999999999"
+            href={`tel:${PHONE}`}
+            onClick={() => void track("call_click", { surface: "nav" })}
             className="hidden h-11 items-center gap-2 rounded-full border border-border px-4 text-sm text-foreground/90 transition-colors hover:border-gold hover:text-gold md:inline-flex"
           >
             <Phone className="h-4 w-4" /> Call Clinic
           </a>
           <Link
             to="/book-appointment"
+            onClick={() => void track("booking_start", { surface: "nav" })}
             className="hidden h-11 items-center rounded-full bg-gold px-5 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5 md:inline-flex"
           >
             Book Appointment

@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/Layout";
-import { WHATSAPP } from "@/components/site/StickyBar";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
+import { supabase } from "@/integrations/supabase/client";
+import { track } from "@/lib/tracking";
+import { useNavigate } from "@tanstack/react-router";
 import { Check, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/book-appointment")({
@@ -36,11 +39,29 @@ function Book() {
   const [slot, setSlot] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const navigate = useNavigate();
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `Hi Om Centre,%0A%0AI'd like to book an appointment:%0A• Name: ${name}%0A• Phone: ${phone}%0A• Treatment: ${treatment}%0A• Date: ${date}%0A• Slot: ${slot}%0A%0AThank you.`;
-    window.open(`${WHATSAPP.split("?")[0]}?text=${msg}`, "_blank");
+    if (submitting) return;
+    setSubmitting(true);
+    const trimmedName = name.trim().slice(0, 100);
+    const trimmedPhone = phone.trim().slice(0, 20);
+    // Persist to DB
+    const { error } = await supabase.from("appointments").insert({
+      name: trimmedName,
+      phone: trimmedPhone,
+      treatment,
+      appointment_date: date,
+      slot,
+      source: "book-appointment",
+    });
+    if (error) console.warn("appointment insert failed", error);
+    void track("booking_submit", { treatment, slot });
+    const text = `Hi Om Centre,\n\nI'd like to book an appointment:\n• Name: ${trimmedName}\n• Phone: ${trimmedPhone}\n• Treatment: ${treatment}\n• Date: ${date}\n• Slot: ${slot}\n\nThank you.`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+    navigate({ to: "/thank-you" });
   };
 
   return (
@@ -90,8 +111,8 @@ function Book() {
             <input required placeholder="Full name" value={name} onChange={(e) => setName(e.target.value)} className="h-12 rounded-lg border border-border bg-background px-4 text-sm focus:border-gold focus:outline-none" />
             <input required placeholder="Phone (WhatsApp)" value={phone} onChange={(e) => setPhone(e.target.value)} className="h-12 rounded-lg border border-border bg-background px-4 text-sm focus:border-gold focus:outline-none" />
           </div>
-          <button type="submit" disabled={!slot} className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-gold text-sm font-medium text-primary-foreground disabled:opacity-50">
-            <MessageCircle className="h-4 w-4" /> Confirm on WhatsApp
+          <button type="submit" disabled={!slot || submitting} className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-gold text-sm font-medium text-primary-foreground disabled:opacity-50">
+            <MessageCircle className="h-4 w-4" /> {submitting ? "Confirming…" : "Confirm on WhatsApp"}
           </button>
         </form>
         <aside className="lg:col-span-5">

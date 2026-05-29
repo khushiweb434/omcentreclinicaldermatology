@@ -10,6 +10,85 @@ import {
 
 import appCss from "../styles.css?url";
 
+const LOCAL_BUSINESS_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": ["MedicalBusiness", "MedicalClinic", "LocalBusiness"],
+  "@id": "https://omcentreclinicaldermatology.lovable.app/#clinic",
+  name: "Om Centre for Clinical Dermatology",
+  url: "https://omcentreclinicaldermatology.lovable.app",
+  image: "https://omcentreclinicaldermatology.lovable.app/og-cover.jpg",
+  telephone: "+91-99250-11309",
+  priceRange: "₹₹",
+  medicalSpecialty: "Dermatology",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "604, 6th Floor, A Park Business Hub, near Panchal Hall, Shahibaug",
+    addressLocality: "Ahmedabad",
+    addressRegion: "Gujarat",
+    postalCode: "380004",
+    addressCountry: "IN",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 23.0598, longitude: 72.5919 },
+  areaServed: [
+    { "@type": "Place", name: "Shahibaug" },
+    { "@type": "Place", name: "Sabarmati" },
+    { "@type": "Place", name: "Chandkheda" },
+    { "@type": "Place", name: "Motera" },
+    { "@type": "Place", name: "Ranip" },
+    { "@type": "Place", name: "Ahmedabad" },
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "11:00",
+      closes: "13:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "17:00",
+      closes: "20:00",
+    },
+  ],
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "100" },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Dermatology services",
+    itemListElement: [
+      "Acne & Pimple Treatment",
+      "Hair Fall & PRP Treatment",
+      "Laser Dermatology",
+      "Pigmentation & Melasma Treatment",
+      "Skin Allergy Treatment",
+      "Eczema & Psoriasis Treatment",
+      "Fungal Infection Treatment",
+      "Anti-Aging & Cosmetic Dermatology",
+      "Vitiligo Treatment",
+      "Nail Disorder Treatment",
+    ].map((name) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "MedicalProcedure", name },
+    })),
+  },
+  sameAs: [
+    "https://www.practo.com/ahmedabad/doctor/dr-nayankumar-patel-dermatologist",
+    "https://maps.app.goo.gl/sTahfMnAmihfWWzaA",
+  ],
+};
+
+const PHYSICIAN_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "@id": "https://omcentreclinicaldermatology.lovable.app/#doctor",
+  name: "Dr. Nayankumar Harshadkumar Patel",
+  medicalSpecialty: "Dermatology",
+  worksFor: { "@id": "https://omcentreclinicaldermatology.lovable.app/#clinic" },
+  alumniOf: "Gujarat Medical Council",
+  identifier: "GMC 29756",
+  knowsLanguage: ["English", "Hindi", "Gujarati"],
+};
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -90,6 +169,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+    ],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(LOCAL_BUSINESS_JSONLD) },
+      { type: "application/ld+json", children: JSON.stringify(PHYSICIAN_JSONLD) },
     ],
   }),
   shellComponent: RootShell,
