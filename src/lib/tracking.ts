@@ -15,7 +15,7 @@ export async function track(event: TrackEvent, metadata: Record<string, unknown>
     await supabase.from("tracking_events").insert({
       event_type: event,
       source,
-      metadata,
+      metadata: metadata as never,
       user_agent: ua,
     });
   } catch (e) {
