@@ -14,7 +14,102 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      appointments: {
+        Row: {
+          appointment_date: string
+          created_at: string
+          id: string
+          name: string
+          notes: string | null
+          phone: string
+          slot: string
+          source: string | null
+          status: string
+          treatment: string
+        }
+        Insert: {
+          appointment_date: string
+          created_at?: string
+          id?: string
+          name: string
+          notes?: string | null
+          phone: string
+          slot: string
+          source?: string | null
+          status?: string
+          treatment: string
+        }
+        Update: {
+          appointment_date?: string
+          created_at?: string
+          id?: string
+          name?: string
+          notes?: string | null
+          phone?: string
+          slot?: string
+          source?: string | null
+          status?: string
+          treatment?: string
+        }
+        Relationships: []
+      }
+      reviews: {
+        Row: {
+          approved: boolean
+          body: string
+          created_at: string
+          id: string
+          name: string
+          rating: number
+          treatment: string | null
+        }
+        Insert: {
+          approved?: boolean
+          body: string
+          created_at?: string
+          id?: string
+          name: string
+          rating: number
+          treatment?: string | null
+        }
+        Update: {
+          approved?: boolean
+          body?: string
+          created_at?: string
+          id?: string
+          name?: string
+          rating?: number
+          treatment?: string | null
+        }
+        Relationships: []
+      }
+      tracking_events: {
+        Row: {
+          created_at: string
+          event_type: string
+          id: string
+          metadata: Json | null
+          source: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          event_type: string
+          id?: string
+          metadata?: Json | null
+          source?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          event_type?: string
+          id?: string
+          metadata?: Json | null
+          source?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
